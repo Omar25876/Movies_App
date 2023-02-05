@@ -28,7 +28,6 @@ class _HomeMainScreenState extends State<HomeMainScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: currentIndex,
           onTap: (index) {
@@ -51,6 +50,7 @@ class _HomeMainScreenState extends State<HomeMainScreen> {
                   ),
                   size: 40,
                 ),
+              backgroundColor: Theme.of(context).colorScheme.primary,
               label: 'SEARCH',
             ),
             BottomNavigationBarItem(
@@ -60,6 +60,7 @@ class _HomeMainScreenState extends State<HomeMainScreen> {
                   ),
                   size: 40,
                 ),
+              backgroundColor: Theme.of(context).colorScheme.primary,
               label: 'BROWSE',
             ),
             BottomNavigationBarItem(
@@ -69,6 +70,7 @@ class _HomeMainScreenState extends State<HomeMainScreen> {
                   ),
                   size: 40,
                 ),
+              backgroundColor: Theme.of(context).colorScheme.primary,
               label: 'WATCHLIST',
             ),
           ],
