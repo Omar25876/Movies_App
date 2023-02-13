@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/ui/screens/Home_fragment/home_fragment.dart';
+import 'package:movies_app/ui/screens/Home_fragment/home_view.dart';
 import 'package:movies_app/ui/screens/browse_fragment/browse_fragment.dart';
 import 'package:movies_app/ui/screens/search_fragment/search_fragment.dart';
 import 'package:movies_app/ui/screens/watchlist_fragment/watchlist_fragment.dart';
@@ -28,7 +28,6 @@ class _HomeMainScreenState extends State<HomeMainScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: currentIndex,
           onTap: (index) {
@@ -51,6 +50,7 @@ class _HomeMainScreenState extends State<HomeMainScreen> {
                   ),
                   size: 40,
                 ),
+              backgroundColor: Theme.of(context).colorScheme.primary,
               label: 'SEARCH',
             ),
             BottomNavigationBarItem(
@@ -60,6 +60,7 @@ class _HomeMainScreenState extends State<HomeMainScreen> {
                   ),
                   size: 40,
                 ),
+              backgroundColor: Theme.of(context).colorScheme.primary,
               label: 'BROWSE',
             ),
             BottomNavigationBarItem(
@@ -69,6 +70,7 @@ class _HomeMainScreenState extends State<HomeMainScreen> {
                   ),
                   size: 40,
                 ),
+              backgroundColor: Theme.of(context).colorScheme.primary,
               label: 'WATCHLIST',
             ),
           ],

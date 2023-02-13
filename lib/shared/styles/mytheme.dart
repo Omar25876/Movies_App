@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/shared/constants/constant.dart';
+import 'package:movies_app/shared/styles/colors.dart';
 
 class MyTheme{
 

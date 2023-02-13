@@ -38,6 +38,13 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_native_splash: ^2.2.17
   http: ^0.13.5
+  carousel_slider: ^4.2.1
+  cached_network_image: ^3.2.3
+  provider: ^6.0.4
+  firebase_core: ^2.4.0
+  cloud_firestore: ^4.2.0
+  firebase_auth: ^4.2.5
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
