@@ -17,7 +17,7 @@ class DatabaseUtils {
     return docref.set(movie);
   }
 
-  static Stream<QuerySnapshot<Movie>> readMoviesFormFirebase()  {
+  static Stream<QuerySnapshot<Movie>> readMoviesFormFirebase2()  {
     return getMoviesCollection().snapshots();
   }
 

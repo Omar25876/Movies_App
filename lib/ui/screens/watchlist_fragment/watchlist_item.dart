@@ -4,16 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/database_utils/database_utils.dart';
 import 'package:movies_app/models/movie_model.dart';
 
-class SearchWidget extends StatefulWidget {
+class WatchListItem extends StatefulWidget {
   Movie movie;
 
-  SearchWidget(this.movie);
+  WatchListItem(this.movie);
 
   @override
-  State<SearchWidget> createState() => _SearchWidgetState();
+  State<WatchListItem> createState() => _SearchWidgetState();
 }
 
-class _SearchWidgetState extends State<SearchWidget> {
+class _SearchWidgetState extends State<WatchListItem> {
   String img = 'https://image.tmdb.org/t/p/w500';
   int isSelected = 0;
   @override
@@ -50,25 +50,20 @@ class _SearchWidgetState extends State<SearchWidget> {
                     placeholder: (context, url) => CircularProgressIndicator(),
                     errorWidget: (context, url, error) => Center(
                         child: Icon(
-                      Icons.error,
-                      color: Colors.red,
-                      size: 42,
-                    )),
+                          Icons.error,
+                          color: Colors.red,
+                          size: 42,
+                        )),
                   ),
                   Positioned(
                     child: InkWell(
                         onTap: () {
-                          isSelected = 1 - isSelected;
-                          if (isSelected == 1) {
-                            DatabaseUtils.AddMoviesToFirebase(widget.movie);
-                          } else {
+                          if (isSelected == 0) {
                             DatabaseUtils.DeletTask('${widget.movie.DataBaseId}');
                           }
                           setState(() {});
                         },
-                        child: isSelected == 0
-                            ? Image.asset('assets/bookmark.png')
-                            : Image.asset('assets/bookmarkSelected.png')),
+                        child: Image.asset('assets/bookmarkSelected.png')),
                   ),
                 ],
               ),
@@ -113,11 +108,11 @@ class _SearchWidgetState extends State<SearchWidget> {
 
   Future<void> checkMovieInFireStore() async {
     QuerySnapshot<Movie> temp =
-        await DatabaseUtils.readMovieFormFirebase(widget.movie.id!);
+    await DatabaseUtils.readMovieFormFirebase(widget.movie.id!);
     if (temp.docs.isEmpty) {
     } else {
       widget.movie.DataBaseId = temp.docs[0].data().DataBaseId;
-      isSelected = 1;
+      isSelected = 0;
       setState(() {});
     }
   }

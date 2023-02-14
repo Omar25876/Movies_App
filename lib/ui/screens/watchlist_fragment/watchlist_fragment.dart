@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/database_utils/database_utils.dart';
 import 'package:movies_app/models/movie_model.dart';
 import 'package:movies_app/ui/screens/search_fragment/search_widget.dart';
+import 'package:movies_app/ui/screens/watchlist_fragment/watchlist_item.dart';
 
 class WatchlistTab extends StatefulWidget {
 
@@ -25,12 +26,12 @@ class _WatchlistTabState extends State<WatchlistTab> {
               child: Text('WatchList',style: TextStyle(
                 color: Colors.white,
                 fontSize: 32,
-                fontWeight: FontWeight.bold
+                fontWeight: FontWeight.bold,
               ),),
             ),
             Expanded(
               child: StreamBuilder<QuerySnapshot<Movie>>(
-                stream: DatabaseUtils.readMoviesFormFirebase(),
+                stream: DatabaseUtils.readMoviesFormFirebase2(),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return Center(child: CircularProgressIndicator(
@@ -44,7 +45,7 @@ class _WatchlistTabState extends State<WatchlistTab> {
                     itemCount: messages.length,
                     itemBuilder: (context, index) {
 
-                      return SearchWidget(messages[index]);
+                      return WatchListItem(messages[index]);
 
                     },
 
